@@ -1,4 +1,4 @@
-package me.yunbchea.coordinate.car;
+package me.yunbchae.coordinate.car;
 
 public interface RentCompany {
     void addCar(Car car);

@@ -1,4 +1,4 @@
-package me.yunbchea.coordinate.car;
+package me.yunbchae.coordinate.car;
 
 public abstract class CarImpl implements Car {
 

@@ -1,10 +1,11 @@
-package me.yunbchea.coordinate.calculator;
+package me.yunbchae.coordinate.calculator;
+
+import me.yunbchae.coordinate.calculator.view.PointsInputException;
 
 import java.util.Objects;
 
 public class Coordinate {
 
-    private static final IllegalArgumentException INVALID_COORDINATE_VALUE_EXCEPTION = new IllegalArgumentException("유효하지 않은 좌표 값 입니다.");
     private static final int MINIMUM_VALUE = 0;
     private static final int MAXIMUM_VALUE = 24;
 
@@ -17,7 +18,7 @@ public class Coordinate {
 
     private void validate(int value) {
         if (value < MINIMUM_VALUE || value > MAXIMUM_VALUE) {
-            throw INVALID_COORDINATE_VALUE_EXCEPTION;
+            throw PointsInputException.invalidFormat();
         }
     }
 

@@ -1,4 +1,4 @@
-package me.yunbchea.coordinate.calculator;
+package me.yunbchae.coordinate.calculator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,8 +16,8 @@ class PointTest {
         int x2 = 14;
         int y2 = 15;
         double distance = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
-        Point point1 = Point.of(x1, y1);
-        Point point2 = Point.of(x2, y2);
+        Point point1 = Point.of(String.format("(%d,%d)", x1, y1));
+        Point point2 = Point.of(String.format("(%d,%d)", x2, y2));
         assertThat(point1.calculateDistanceFrom(point2)).isCloseTo(distance, offset(0.000001));
     }
 }

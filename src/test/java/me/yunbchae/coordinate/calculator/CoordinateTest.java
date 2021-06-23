@@ -1,11 +1,11 @@
-package me.yunbchea.coordinate.calculator;
+package me.yunbchae.coordinate.calculator;
 
+import me.yunbchae.coordinate.calculator.view.PointsInputException;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.*;
 
 class CoordinateTest {
 
@@ -18,7 +18,7 @@ class CoordinateTest {
     @ParameterizedTest(name = "좌표 입력 값이 0에서 24 사이의 값이 아니라면 예외가 발생한다.")
     @ValueSource(ints = {-1, 25})
     public void createCoordinateFailTest(int value) {
-        assertThatIllegalArgumentException().isThrownBy(() -> Coordinate.of(value));
+        assertThatThrownBy(() -> Coordinate.of(value)).isExactlyInstanceOf(PointsInputException.class);
     }
 
     @ParameterizedTest(name = "좌표 값의 차이를 계산 할 수 있다.")

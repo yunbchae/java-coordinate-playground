@@ -1,6 +1,7 @@
 package me.yunbchae.coordinate.calculator;
 
-import me.yunbchae.coordinate.calculator.view.PointsInputException;
+import me.yunbchae.coordinate.calculator.exception.PointsInputException;
+import me.yunbchae.coordinate.calculator.model.Coordinate;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;

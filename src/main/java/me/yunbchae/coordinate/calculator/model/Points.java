@@ -1,11 +1,13 @@
-package me.yunbchae.coordinate.calculator;
+package me.yunbchae.coordinate.calculator.model;
+
+import me.yunbchae.coordinate.calculator.view.Renderable;
 
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Points {
+public abstract class Points implements Renderable {
 
-    private final List<Point> points;
+    protected final List<Point> points;
 
     protected Points(List<Point> points) {
         validate(points);

@@ -1,14 +1,15 @@
 package me.yunbchae.coordinate.calculator.view;
 
-import me.yunbchae.coordinate.calculator.Coordinate;
-import me.yunbchae.coordinate.calculator.Point;
-import me.yunbchae.coordinate.calculator.Points;
+import me.yunbchae.coordinate.calculator.exception.RenderFailException;
+import me.yunbchae.coordinate.calculator.model.Coordinate;
+import me.yunbchae.coordinate.calculator.model.Point;
+import me.yunbchae.coordinate.calculator.model.Points;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PointsRenderer {
+public class PointsRenderer implements Renderer {
 
     private static final String[][] DEFAULT_COORDINATE_SYSTEM;
     private static final String NEW_LINE = System.getProperty("line.separator");
@@ -50,8 +51,12 @@ public class PointsRenderer {
         };
     }
 
-    public String render(Points points) {
-        return convertToString(createCoordinateSystemWith(points));
+    @Override
+    public String render(Renderable renderable) {
+        if (!(renderable instanceof Points)) {
+            throw RenderFailException.invalidType();
+        }
+        return convertToString(createCoordinateSystemWith((Points) renderable));
     }
 
     private String[][] createCoordinateSystemWith(Points points) {

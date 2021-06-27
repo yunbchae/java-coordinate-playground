@@ -1,6 +1,6 @@
-package me.yunbchae.coordinate.calculator;
+package me.yunbchae.coordinate.calculator.model;
 
-import me.yunbchae.coordinate.calculator.view.PointsInputException;
+import me.yunbchae.coordinate.calculator.exception.PointsInputException;
 
 import java.util.Objects;
 

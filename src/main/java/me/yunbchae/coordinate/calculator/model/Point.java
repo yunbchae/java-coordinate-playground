@@ -1,6 +1,6 @@
-package me.yunbchae.coordinate.calculator;
+package me.yunbchae.coordinate.calculator.model;
 
-import me.yunbchae.coordinate.calculator.view.PointsInputException;
+import me.yunbchae.coordinate.calculator.exception.PointsInputException;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -40,11 +40,11 @@ public class Point {
                 .toArray();
     }
 
-    public double calculateDistanceFrom(Point that) {
-        return Objects.requireNonNull(that).calculateDistanceFrom(x, y);
+    public double measureDistanceFrom(Point that) {
+        return Objects.requireNonNull(that).measureDistanceFrom(x, y);
     }
 
-    private double calculateDistanceFrom(Coordinate x, Coordinate y) {
+    private double measureDistanceFrom(Coordinate x, Coordinate y) {
         int diffX = this.x.diff(x);
         int diffY = this.y.diff(y);
         return Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));

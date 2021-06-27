@@ -1,10 +1,10 @@
-package me.yunbchae.coordinate.calculator;
+package me.yunbchae.coordinate.calculator.model;
 
-import me.yunbchae.coordinate.calculator.view.PointsInputException;
+import me.yunbchae.coordinate.calculator.exception.PointsInputException;
 
 import java.util.List;
 
-public class Line extends Points {
+public class Line extends Points implements DistanceMeasurable {
 
     public static final int POINT_COUNT = 2;
 
@@ -21,5 +21,12 @@ public class Line extends Points {
         if (points.size() != POINT_COUNT) {
             throw PointsInputException.invalidFormat();
         }
+    }
+
+    @Override
+    public double measure() {
+        Point p1 = points.get(0);
+        Point p2 = points.get(1);
+        return p1.measureDistanceFrom(p2);
     }
 }

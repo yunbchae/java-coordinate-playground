@@ -1,4 +1,4 @@
-package me.yunbchae.coordinate.calculator.view;
+package me.yunbchae.coordinate.calculator.exception;
 
 public class PointsInputException extends RuntimeException {
 

@@ -1,6 +1,6 @@
 package me.yunbchae.coordinate.calculator.view;
 
-import me.yunbchae.coordinate.calculator.Points;
+import me.yunbchae.coordinate.calculator.exception.PointsInputException;
 
 import java.io.PrintStream;
 
@@ -25,7 +25,8 @@ public class PrintStreamOutputView implements OutputView {
     }
 
     @Override
-    public void printPoints(Points points, PointsRenderer pointsRenderer) {
-        printStream.println(pointsRenderer.render(points));
+    public void print(Renderable renderable, Renderer renderer) {
+        printStream.println(renderer.render(renderable));
+        printStream.println();
     }
 }

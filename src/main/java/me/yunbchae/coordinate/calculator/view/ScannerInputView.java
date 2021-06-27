@@ -1,7 +1,7 @@
 package me.yunbchae.coordinate.calculator.view;
 
-import me.yunbchae.coordinate.calculator.Points;
-import me.yunbchae.coordinate.calculator.PointsFactory;
+import me.yunbchae.coordinate.calculator.model.Points;
+import me.yunbchae.coordinate.calculator.model.PointsFactory;
 
 import java.util.Scanner;
 

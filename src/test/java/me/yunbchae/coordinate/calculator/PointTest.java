@@ -1,6 +1,7 @@
 package me.yunbchae.coordinate.calculator;
 
-import me.yunbchae.coordinate.calculator.view.PointsInputException;
+import me.yunbchae.coordinate.calculator.exception.PointsInputException;
+import me.yunbchae.coordinate.calculator.model.Point;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -26,6 +27,6 @@ class PointTest {
         double distance = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
         Point point1 = Point.of(String.format("(%d,%d)", x1, y1));
         Point point2 = Point.of(String.format("(%d,%d)", x2, y2));
-        assertThat(point1.calculateDistanceFrom(point2)).isCloseTo(distance, offset(0.000001));
+        assertThat(point1.measureDistanceFrom(point2)).isCloseTo(distance, offset(0.000001));
     }
 }

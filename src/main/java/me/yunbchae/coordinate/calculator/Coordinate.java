@@ -29,4 +29,8 @@ public class Coordinate {
     public int diff(Coordinate that) {
         return Math.abs(this.value - Objects.requireNonNull(that).value);
     }
+
+    public int getValue() {
+        return value;
+    }
 }

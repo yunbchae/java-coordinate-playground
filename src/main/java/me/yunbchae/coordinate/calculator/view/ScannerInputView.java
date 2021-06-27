@@ -1,6 +1,7 @@
 package me.yunbchae.coordinate.calculator.view;
 
 import me.yunbchae.coordinate.calculator.Points;
+import me.yunbchae.coordinate.calculator.PointsFactory;
 
 import java.util.Scanner;
 
@@ -14,6 +15,6 @@ public class ScannerInputView implements InputView {
 
     @Override
     public Points inputPoints() {
-        return Points.of(scanner.nextLine());
+        return PointsFactory.create(scanner.nextLine());
     }
 }

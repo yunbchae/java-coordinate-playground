@@ -8,18 +8,21 @@ public class Calculator {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final PointsRenderer pointsRenderer;
 
-    public Calculator(InputView inputView, OutputView outputView) {
+    public Calculator(InputView inputView, OutputView outputView, PointsRenderer pointsRenderer) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.pointsRenderer = pointsRenderer;
     }
 
     public Points input() {
-        Points points = Points.empty();
-        while(points.isEmpty()) {
+        Points points = null;
+        while(points == null) {
             outputView.printInputMessage();
             points = inputPoints();
         }
+        outputView.printPoints(points, pointsRenderer);
         return points;
     }
 
@@ -28,7 +31,7 @@ public class Calculator {
             return inputView.inputPoints();
         } catch (PointsInputException e) {
             outputView.printInputErrorMessage(e);
-            return Points.empty();
+            return null;
         }
     }
 
@@ -44,6 +47,7 @@ public class Calculator {
     private static Calculator createCalculator() {
         InputView inputView = new ScannerInputView(new Scanner(System.in));
         OutputView outputView = new PrintStreamOutputView(System.out);
-        return new Calculator(inputView, outputView);
+        PointsRenderer pointsRenderer = new PointsRenderer();
+        return new Calculator(inputView, outputView, pointsRenderer);
     }
 }

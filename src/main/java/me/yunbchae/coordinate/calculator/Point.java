@@ -49,4 +49,12 @@ public class Point {
         int diffY = this.y.diff(y);
         return Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
     }
+
+    public Coordinate getX() {
+        return x;
+    }
+
+    public Coordinate getY() {
+        return y;
+    }
 }

@@ -1,12 +1,20 @@
 package me.yunbchae.coordinate.calculator;
 
+import me.yunbchae.coordinate.calculator.view.PointsInputException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.offset;
+import static org.assertj.core.api.Assertions.*;
 
 class PointTest {
+
+    @ParameterizedTest(name = "좌표 형식이 잘못된 경우 예외가 발생한다.")
+    @ValueSource(strings = {"12,14", "{12,14}", "(12:14)"})
+    public void createPointTest(String inputString) {
+        assertThatThrownBy(() -> Point.of(inputString)).isExactlyInstanceOf(PointsInputException.class);
+    }
 
     @DisplayName("두 좌표 값이 주어졌을 때, 거리를 계산 할 수 있다.")
     @Test
